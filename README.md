@@ -29,7 +29,7 @@ $$\text{FL}(p_t) = -\alpha_t (1 - p_t)^\gamma \log(p_t)$$
 Where:
 -   $p_t$​ is the model's estimated probability for the true class:
     -   For correctly classified examples, $p_t$ is high.
-    -   For misclassified examples, $p_t$t is low.
+    -   For misclassified examples, $p_t$ is low.
 -   $\alpha_t$​ is the class balancing factor for the true class $t$.
 -   $\gamma$ is the focusing parameter that adjusts the rate at which easy examples are down-weighted.
 ### Focal Loss Variants
@@ -37,6 +37,7 @@ Where:
 #### 1. **Binary Classification**
 
 For binary classification, where each instance belongs to one of two classes (0 or 1), the Focal Loss becomes:
+
 $$\text{FL}(p) = -\alpha\, [y \cdot (1 - p)^\gamma \log(p) + (1 - y) \cdot p^\gamma \log(1 - p)]$$
 
 -   $p = \sigma(x)$ is the predicted probability after applying the sigmoid function.
@@ -46,9 +47,10 @@ $$\text{FL}(p) = -\alpha\, [y \cdot (1 - p)^\gamma \log(p) + (1 - y) \cdot p^\ga
 #### 2. **Multi-class Classification**
 
 For multi-class classification with $C$ classes, the Focal Loss is:
+
 $$\text{FL}(p_t) = -\alpha_t (1 - p_t)^\gamma \log(p_t)$$
 
--   $p_t = \text{Softmax}(x)_t$​ is the predicted probability for the true class$t$.
+-   $p_t = \text{Softmax}(x)_t$​ is the predicted probability for the true class $t$.
 -   $\alpha_t$​ is the class-specific weighting factor.
 -   The loss is summed over all classes and averaged over the batch.
 
